@@ -85,7 +85,7 @@ ID <- "test"
 test <- cbind(ID, test_complete)
 View(test)
 
-# merge (bind?) train and test
+# bind train and test
 complete_df <- rbind(train, test)
 View(complete_df)
 
@@ -105,7 +105,7 @@ colnames(complete_df) <- make.names(colnames(complete_df), unique = TRUE)
 colnames(complete_df)
 # names changed, some "()" substituted with ".."
 
-# Same line as before to esxtract the mean coloumns
+# Same line as before to extract the mean coloumns
 Mean_df <- complete_df %>%
         select(matches("mean"))
 View(Mean_df)
@@ -139,7 +139,9 @@ merge_test <- merge(activity_df, selected_df, by = "activity")
 colnames(merge_test)
 View(merge_test)
 
+# Calculate mean of every coloumn by subject and activity
 tidy_df <- merge_test[,-c(2, 3)] %>%
         group_by(subject, activity) %>%
         summarise_all(funs(mean))
+# coloumn 2 and 3 are subject and train/test ID, removed to avoid warnings
 View(tidy_df)
