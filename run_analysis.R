@@ -139,9 +139,10 @@ colnames(merge_test)
 View(merge_test)
 
 # Calculate mean of every coloumn by subject and activity
-tidy_df <- merge_test[,-c(2, 3)] %>%
-        group_by(subject, activity) %>%
+tidy_df <- merge_test[,-c(1, 3)] %>%
+        group_by(subject, activity_name) %>%
         summarise_all(funs(mean))
 # coloumn 2 and 3 are subject and train/test ID, removed to avoid warnings
 View(tidy_df)
 write.table(tidy_df, file = "tidy_df.txt", row.names = FALSE)
+write.csv(tidy_df, file = "tidy_df.csv", row.names = F)
