@@ -1,6 +1,6 @@
 # Project-Getting-and-Cleaning-Data
 
-The different steps to get to the final tidi_df file were as follow
+The different steps to get to the final tidy_df file were as follow
 
 1) Loaded set, labels and subjects for both train set and test set into data frame
 2) Assigned the variable name from feature file to the dataframes
