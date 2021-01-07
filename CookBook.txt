@@ -11,8 +11,3 @@ The different steps to get to the final tidy_df file were as follow
 7) assigned a descriptive name to the activity
 8) constructed the final tidy dataframe
 9) created the txt file from the dataframe
-
-The variable in the final dataframe are:
-- the subject bnumber
-- the activity name
-- the mean of all the variable, in the 3 spacial direction x/y/z
