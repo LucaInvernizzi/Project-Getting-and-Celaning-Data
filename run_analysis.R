@@ -29,7 +29,7 @@ library(dplyr)
 
 # load and check train set, labels and subjects
 train_set <- 
-        read.table("./data/week4_dataset/train/X_train.txt") 
+        read.table("./data/week4_dataset/train/X_train.txt")
 head(train_set, 1)
 
 train_labels <- 
@@ -90,7 +90,6 @@ complete_df <- rbind(train, test)
 View(complete_df)
 
 # select coloumn with mean and sd
-
 Mean_df <- complete_df %>%
         select(matches("mean"))
 # this gives an error, 
@@ -145,3 +144,4 @@ tidy_df <- merge_test[,-c(2, 3)] %>%
         summarise_all(funs(mean))
 # coloumn 2 and 3 are subject and train/test ID, removed to avoid warnings
 View(tidy_df)
+write.table(tidy_df, file = "tidy_df.txt", row.names = FALSE)
